@@ -36,8 +36,10 @@ if __name__ == '__main__':
             "--start=" in sys.argv[2] and \
             "--end" in sys.argv[3]:
         enable_gh_action = True  # 检测是否在GitHub Action中运行
-        startDate = sys.argv[2].lstrip("--start=")
-        endDate = sys.argv[3].lstrip("--end=")
+        #startDate = sys.argv[2].lstrip("--start=")
+        #endDate = sys.argv[3].lstrip("--end=")
+        startDate = "2022-08-19"
+        endDate = "2022-08-22"
     elif len(sys.argv) > 1 and \
             "--period=" in sys.argv[2]:
         import datetime
@@ -47,7 +49,7 @@ if __name__ == '__main__':
 
         startDate = d1.strftime("%Y-%m-%d")
         endDate = d2.strftime("%Y-%m-%d")
-
+ 
     else:
         print("Invalid argument")
         exit(0)
