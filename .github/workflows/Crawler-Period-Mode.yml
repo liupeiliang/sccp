@@ -13,18 +13,10 @@ on:
         description: 'SSH connection to Actions (For Debug)'
         required: false
         default: 'false'
-      # period:
-      #   description: 'Search Period'
-      #   required: true
-      #   default: '30'
-      start:
-        description: 'Search Start Time'
+      period:
+        description: 'Search Period'
         required: true
-        default: '2022-08-19'
-      end:
-        description: 'Search Start Time'
-        required: true
-        default: '2022-08-22'
+        default: '30'
 
 jobs:
   build:
@@ -52,7 +44,7 @@ jobs:
 
       - name: Start Crawling & Barking
         run: |
-          python main.py --action --start={{github.event.inputs.start}} --end={{github.event.inputs.end}}
+          python main.py --action --period={{github.event.inputs.period}}
 
       - name: Delete workflow runs
         uses: GitRML/delete-workflow-runs@main
